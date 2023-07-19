@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,100;1,200;1,300;1,400;1,600&family=Lato:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-image: url(./fondo.jpg);
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.page-content {
+  width: 100%;
+  height: 100vh;
+  transform: translateX(100%);
+  /* Inicialmente, el contenido estará fuera de la pantalla a la derecha */
+  animation: slideIn 1s ease-in-out forwards;
+  /* Aplicamos la animación "slideIn" */
+  padding: 0;
+  margin: 0;
+}
+
+/* Definimos la animación de deslizamiento "slideIn" */
+@keyframes slideIn {
+  0% { 
+      transform: translateX(100%);
+      /* Al 0%, el contenido estará fuera de la pantalla a la derecha */
+  }
+
+  100% {
+      transform: translateX(0);
+      /* Al 100%, el contenido se deslizará hacia la posición original (0) */
+  }
+}
+
+
+
+.container-title {
+  margin-top: 0;
+  margin: auto;
+  width: 800px;
+ margin-bottom: 50px;
+  text-align: center;
+}
+
+.title {
+  font-size: 180px;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+header {
+
+  color: #fff;
+  padding: 10px;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 10px;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #800000;
+  /* Color vino */
+}
+
+/* Estilo para el efecto al hacer clic */
+.navbar li a:active {
+  background-color: #A52A2A;
+  /* Color vino más claro cuando se hace clic */
+}
+
+.navbar li a:hover {
+  background-color: #8B0000;
+  /* Color vino oscuro en el hover */
+}
+
+.navbar li a.active {
+  background-color: #8B0000;
+  /* Color vino oscuro para el elemento activo */
+}
+
+.btn-img{
+  display: flex;
+  justify-content: center;
+}
+/* Estilo para la imagen dentro del enlace */
+.btn-img img {
+  position: relative; /* Necesario para posicionar el tooltip correctamente */
+  animation: bounceWithPause 4s infinite; /* 2s para la animación + 2s de pausa, se repetirá infinitamente */
+}
+
+/* Estilo para el tooltip */
+.tooltip {
+  display: none;
+  position: absolute;
+  
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  opacity: 0; /* Inicialmente el tooltip estará oculto */
+  transition: opacity 0.3s ease; /* Transición de 0.3 segundos para que aparezca de forma lenta */
+}
+
+/* Mostrar el tooltip cuando se añade la clase "show" */
+.tooltip.show {
+  opacity: 1; /* Hace que el tooltip sea visible */
+}
+
+/* Definimos la animación de aparecer y desvanecer */
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0; /* El tooltip estará oculto al inicio y al final */
+  }
+  50% {
+    opacity: 1; /* El tooltip estará completamente visible en la mitad de la animación */
+  }
+}
+
+/* Agregamos el retraso a la animación */
+@keyframes bounceWithPause {
+  0%, 100% {
+    transform: translateY(0); /* La imagen estará en su posición original al inicio y al final */
+  }
+  25%, 75% {
+    transform: translateY(-10px); /* La imagen se moverá hacia arriba un poco en la mitad de la animación */
+  }
+  50% {
+    transform: translateY(0); /* La imagen volverá a su posición original en el centro del tiempo */
+  }
+}
